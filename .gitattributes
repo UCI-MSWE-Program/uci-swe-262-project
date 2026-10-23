@@ -1,0 +1,2 @@
+bs4/tests/very_large.html filter=lfs diff=lfs merge=lfs -text
+bs4/tests/giga.html filter=lfs diff=lfs merge=lfs -text

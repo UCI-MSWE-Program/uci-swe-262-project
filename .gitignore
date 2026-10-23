@@ -1,0 +1,3 @@
+__pycache__/
+*.pyc
+bs4/tests/enwiki-20151002-pages-meta-current23.xml

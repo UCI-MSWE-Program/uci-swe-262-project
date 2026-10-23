@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <book id="bk101" genre="Computer">
+    <author>Gambardella, Matthew</author>
+    <title>XML Developer's Guide</title>
+    <price>44.95</price>
+    <description>An in-depth look at creating applications with XML.</description>
+  </book>
+  <book id="bk102" genre="Fantasy">
+    <author>Ralls, Kim</author>
+    <title>Midnight Rain</title>
+    <price>5.95</price>
+  </book>
+</catalog>
