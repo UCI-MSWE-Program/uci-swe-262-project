@@ -1,2 +1,2 @@
-beautifulsoup4==4.15.0
+-e ./bs4/beautifulsoup4
 lxml==6.1.3
