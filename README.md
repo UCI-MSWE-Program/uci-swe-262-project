@@ -108,9 +108,9 @@ python3 apps/m1/task7.py input.html world "*"    # <p class="liquid money"> -> <
 
 ### Test corpus
 
-`bs4/tests/` holds a corpus of 10 HTML/XML files used to exercise every task
-(small, medium, large, very large, and deeply nested documents), plus the
-two GB-scale experiment inputs:
+`bs4/tests/` holds a corpus of 10 HTML/XML files used to exercise every task:
+eight regular inputs (small, medium, large, very large, and deeply nested
+documents) plus the two GB-scale experiment inputs:
 
 | File | Kind | Size (KiB) |
 | --- | --- | --- |
@@ -226,9 +226,9 @@ file and checking that it dies at the same stage.
 A suite of command-line programs that exercise a
 [fork](https://github.com/UCI-MSWE-Program/beautifulsoup4) of [Beautiful Soup 4](https://www.crummy.com/software/BeautifulSoup/) HTML/XML
 parsing library. These scripts reimplement the corresponding Milestone 1
-tasks using the fork's parsing hooks — `SoupStrainer` (`parse_only`),
-`SoupReplacer` (`replacer`), and `SoupClassReplacer` (`class_replacer`) — so
-the work happens *during* parsing instead of after the full tree is built.
+tasks using the fork's parsing hooks — `SoupStrainer` (`parse_only`) and
+`SoupReplacer` (`replacer`) — so the work happens *during* parsing instead
+of after the full tree is built.
 
 ### What's here
 
@@ -238,7 +238,7 @@ the work happens *during* parsing instead of after the full tree is built.
 | `task3.py` | Print every tag in document order, with a count summary. | `parse_only=bs4.SoupStrainer(True)` |
 | `task4.py` | Print every tag that carries an `id` attribute. | `parse_only=bs4.SoupStrainer(id=True)` |
 | `task6.py` | Rename every `<b>` tag to `<blockquote>` and write the tree to a file. | `replacer=bs4.SoupReplacer('b', 'blockquote')` |
-| `task7.py` | Add a class to every `<p>` tag (optionally removing another class, or clearing all classes with `*`) and write the tree to a file. | `class_replacer=bs4.SoupClassReplacer('p', class_attribute1, class_attribute2)` |
+| `task7.py` | Add a class to every `<p>` tag (optionally removing another class, or clearing all classes with `*`) and write the tree to a file. | `replacer=bs4.SoupReplacer('p', class_attribute1, class_attribute2)` |
 
 `task2.py` and `task4.py` parse a strict subset of the document, so they use
 far less memory than their whole-document Milestone 1 counterparts.

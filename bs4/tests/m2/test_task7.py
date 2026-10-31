@@ -93,14 +93,14 @@ class Task7Tests(unittest.TestCase):
             self.assertIn(f'Wrote modified tree to {out}', proc.stdout)
 
 
-class SoupClassReplacerTests(unittest.TestCase):
+class SoupReplacerTests(unittest.TestCase):
     def test_adds_class_during_parse(self):
         html = ('<html><body><p class="liquid">a</p>'
                 '<p class="liquid money">b</p>'
                 '<p>c</p></body></html>')
         soup = bs4.BeautifulSoup(
             html, 'lxml',
-            class_replacer=bs4.SoupClassReplacer('p', add_classes='test'))
+            replacer=bs4.SoupReplacer('p', add_classes='test'))
         self.assertEqual([classes_of(p) for p in soup.find_all('p')],
                          [['liquid', 'test'],
                           ['liquid', 'money', 'test'],
@@ -110,7 +110,7 @@ class SoupClassReplacerTests(unittest.TestCase):
         html = '<html><body><p class="liquid money">a</p></body></html>'
         soup = bs4.BeautifulSoup(
             html, 'lxml',
-            class_replacer=bs4.SoupClassReplacer('p',
+            replacer=bs4.SoupReplacer('p',
                                                  remove_classes='liquid'))
         self.assertEqual([classes_of(p) for p in soup.find_all('p')],
                          [['money']])
@@ -119,7 +119,7 @@ class SoupClassReplacerTests(unittest.TestCase):
         html = '<html><body><p class="liquid money">a</p></body></html>'
         soup = bs4.BeautifulSoup(
             html, 'lxml',
-            class_replacer=bs4.SoupClassReplacer('p', add_classes='world',
+            replacer=bs4.SoupReplacer('p', add_classes='world',
                                                  remove_classes='liquid'))
         self.assertEqual([classes_of(p) for p in soup.find_all('p')],
                          [['money', 'world']])
@@ -128,7 +128,7 @@ class SoupClassReplacerTests(unittest.TestCase):
         html = '<html><body><p class="liquid money">a</p></body></html>'
         soup = bs4.BeautifulSoup(
             html, 'lxml',
-            class_replacer=bs4.SoupClassReplacer('p', add_classes='world',
+            replacer=bs4.SoupReplacer('p', add_classes='world',
                                                  remove_classes='*'))
         self.assertEqual([classes_of(p) for p in soup.find_all('p')],
                          [['world']])
@@ -137,7 +137,7 @@ class SoupClassReplacerTests(unittest.TestCase):
         html = '<html><body><p class="liquid">a</p></body></html>'
         soup = bs4.BeautifulSoup(
             html, 'lxml',
-            class_replacer=bs4.SoupClassReplacer('p'))
+            replacer=bs4.SoupReplacer('p'))
         self.assertEqual([classes_of(p) for p in soup.find_all('p')],
                          [['liquid']])
 
@@ -146,7 +146,7 @@ class SoupClassReplacerTests(unittest.TestCase):
                 '<div class="liquid">b</div></body></html>')
         soup = bs4.BeautifulSoup(
             html, 'lxml',
-            class_replacer=bs4.SoupClassReplacer('p', add_classes='test'))
+            replacer=bs4.SoupReplacer('p', add_classes='test'))
         self.assertEqual(classes_of(soup.find('div')), ['liquid'])
 
 
