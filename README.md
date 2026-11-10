@@ -411,6 +411,10 @@ python3 bs4/tests/m3/test_task6.py
 python3 bs4/tests/m3/test_task7.py
 ```
 
+## Milestone 4
+
+See `./apps/m4/M4-README.md`.
+
 ## See also
 
 * [Beautiful Soup documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
